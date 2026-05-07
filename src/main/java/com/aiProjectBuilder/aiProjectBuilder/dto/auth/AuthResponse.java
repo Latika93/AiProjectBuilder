@@ -1,4 +1,4 @@
-package com.aiProjectBuilder.aiProjectBuilder.dto;
+package com.aiProjectBuilder.aiProjectBuilder.dto.auth;
 
 public record AuthResponse(
         String token,

@@ -1,9 +1,9 @@
 package com.aiProjectBuilder.aiProjectBuilder.controller;
 
-import com.aiProjectBuilder.aiProjectBuilder.dto.AuthResponse;
-import com.aiProjectBuilder.aiProjectBuilder.dto.LoginRequest;
-import com.aiProjectBuilder.aiProjectBuilder.dto.SignupRequest;
-import com.aiProjectBuilder.aiProjectBuilder.dto.UserProfileResponse;
+import com.aiProjectBuilder.aiProjectBuilder.dto.auth.AuthResponse;
+import com.aiProjectBuilder.aiProjectBuilder.dto.auth.LoginRequest;
+import com.aiProjectBuilder.aiProjectBuilder.dto.auth.SignupRequest;
+import com.aiProjectBuilder.aiProjectBuilder.dto.auth.UserProfileResponse;
 import com.aiProjectBuilder.aiProjectBuilder.service.AuthService;
 import com.aiProjectBuilder.aiProjectBuilder.service.UserService;
 import lombok.RequiredArgsConstructor;

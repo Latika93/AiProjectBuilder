@@ -1,8 +1,8 @@
 package com.aiProjectBuilder.aiProjectBuilder.service;
 
-import com.aiProjectBuilder.aiProjectBuilder.dto.AuthResponse;
-import com.aiProjectBuilder.aiProjectBuilder.dto.LoginRequest;
-import com.aiProjectBuilder.aiProjectBuilder.dto.SignupRequest;
+import com.aiProjectBuilder.aiProjectBuilder.dto.auth.AuthResponse;
+import com.aiProjectBuilder.aiProjectBuilder.dto.auth.LoginRequest;
+import com.aiProjectBuilder.aiProjectBuilder.dto.auth.SignupRequest;
 
 public interface AuthService {
     AuthResponse signup(SignupRequest signupRequest);
