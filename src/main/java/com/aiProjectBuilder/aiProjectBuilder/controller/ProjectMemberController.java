@@ -5,6 +5,7 @@ import com.aiProjectBuilder.aiProjectBuilder.dto.member.MemberResponse;
 import com.aiProjectBuilder.aiProjectBuilder.dto.member.UpdateMemberRoleRequest;
 import com.aiProjectBuilder.aiProjectBuilder.entity.ProjectMember;
 import com.aiProjectBuilder.aiProjectBuilder.service.ProjectMemberService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,13 +26,13 @@ public class ProjectMemberController {
     }
 
     @PostMapping
-    public ResponseEntity<MemberResponse> inviteMember(@PathVariable Long projectId, @RequestBody InviteMemberRequest inviteMemberRequest){
+    public ResponseEntity<MemberResponse> inviteMember(@PathVariable Long projectId, @RequestBody @Valid InviteMemberRequest inviteMemberRequest){
         Long userId = 1L;
         return ResponseEntity.ok(projectMemberService.inviteMember(projectId, inviteMemberRequest, userId));
     }
 
     @PatchMapping("/{memberId}")
-    public ResponseEntity<MemberResponse> updateMember(@PathVariable Long projectId, @PathVariable Long memberId, @RequestBody UpdateMemberRoleRequest updateMemberRoleRequest){
+    public ResponseEntity<MemberResponse> updateMember(@PathVariable Long projectId, @PathVariable Long memberId, @RequestBody @Valid UpdateMemberRoleRequest updateMemberRoleRequest){
         Long userId = 1L;
         return ResponseEntity.ok(projectMemberService.updateMemberRole(projectId, memberId, updateMemberRoleRequest, userId));
     }

@@ -4,6 +4,7 @@ import com.aiProjectBuilder.aiProjectBuilder.dto.project.ProjectRequest;
 import com.aiProjectBuilder.aiProjectBuilder.dto.project.ProjectResponse;
 import com.aiProjectBuilder.aiProjectBuilder.dto.project.ProjectSummaryResponse;
 import com.aiProjectBuilder.aiProjectBuilder.service.ProjectService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,13 +32,13 @@ public class ProjectController {
     }
 
     @PostMapping
-    public ResponseEntity<ProjectResponse> createProject(@RequestBody ProjectRequest projectRequest){
+    public ResponseEntity<ProjectResponse> createProject(@RequestBody @Valid ProjectRequest projectRequest){
         Long userId = 1L;
         return ResponseEntity.status(HttpStatus.CREATED).body(projectService.createProject(projectRequest, userId));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProjectResponse> updateProject(@PathVariable Long id, @RequestBody ProjectRequest projectRequest){
+    public ResponseEntity<ProjectResponse> updateProject(@PathVariable Long id, @RequestBody @Valid ProjectRequest projectRequest){
         Long userId = 1L;
         return ResponseEntity.ok(projectService.updateProject(id, projectRequest, userId));
     }
