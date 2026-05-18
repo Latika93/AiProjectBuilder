@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ProjectMemberService {
 
-    List<ProjectMember> getProjectMembers(Long id, Long userId);
+    List<MemberResponse> getProjectMembers(Long id, Long userId);
 
     MemberResponse inviteMember(Long projectId, InviteMemberRequest inviteMemberRequest, Long userId);
 

@@ -1,9 +1,10 @@
 package com.aiProjectBuilder.aiProjectBuilder.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
 
@@ -12,13 +13,30 @@ import static lombok.AccessLevel.*;
 @Getter
 @Setter
 @FieldDefaults(level = PRIVATE)
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Table(name = "Projects")
 public class Project {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String name;
-    User owner;
-    boolean isPublic = false;
 
+    @Column(nullable = false)
+    String name;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id", nullable = false)
+    User owner;
+
+    Boolean isPublic = false;
+
+    @CreationTimestamp
     Instant createdAt;
+
+    @UpdateTimestamp
     Instant updatedAt;
-    Instant deletedAt;
+
+
+    Instant deletedAt; //soft
 }
