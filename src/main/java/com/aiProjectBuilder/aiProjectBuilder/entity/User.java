@@ -36,6 +36,9 @@ public class User implements UserDetails {
 
     Instant deletedAt; //soft delete
 
+    @Column(unique = true)
+    String stripeCustomerId;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();

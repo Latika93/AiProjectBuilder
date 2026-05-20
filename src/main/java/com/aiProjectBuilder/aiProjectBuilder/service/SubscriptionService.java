@@ -8,7 +8,4 @@ import com.aiProjectBuilder.aiProjectBuilder.dto.subscription.SubscriptionRespon
 public interface SubscriptionService {
     SubscriptionResponse getCurrentSubscription(Long userId);
 
-    CheckoutResponse createCheckoutResponse(CheckoutRequest request, Long userId);
-
-    PortalResponse openCustomerPortal(Long userId);
 }
