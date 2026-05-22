@@ -8,12 +8,14 @@ import com.aiProjectBuilder.aiProjectBuilder.entity.ProjectMember;
 import com.aiProjectBuilder.aiProjectBuilder.entity.ProjectMemberId;
 import com.aiProjectBuilder.aiProjectBuilder.entity.User;
 import com.aiProjectBuilder.aiProjectBuilder.enums.ProjectRole;
+import com.aiProjectBuilder.aiProjectBuilder.errors.BadRequestException;
 import com.aiProjectBuilder.aiProjectBuilder.errors.ResourceNotFoundException;
 import com.aiProjectBuilder.aiProjectBuilder.mapper.ProjectMapper;
 import com.aiProjectBuilder.aiProjectBuilder.repository.ProjectMemberRepository;
 import com.aiProjectBuilder.aiProjectBuilder.repository.ProjectRepository;
 import com.aiProjectBuilder.aiProjectBuilder.repository.UserRepository;
 import com.aiProjectBuilder.aiProjectBuilder.service.ProjectService;
+import com.aiProjectBuilder.aiProjectBuilder.service.SubscriptionService;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -34,9 +36,15 @@ public class ProjectServiceImpl implements ProjectService {
     UserRepository userRepository;
     ProjectMapper projectMapper;
     ProjectMemberRepository projectMemberRepository;
+    SubscriptionService subscriptionService;
 
     @Override
     public ProjectResponse createProject(ProjectRequest projectRequest, Long userId) {
+
+        if(!subscriptionService.canCreateNewProject()) {
+            throw new BadRequestException("User cannot create a New project with current Plan, Upgrade plan now.");
+        }
+
         User owner = userRepository.findById(userId).orElseThrow(
                 ()-> new ResourceNotFoundException("User", userId.toString())
         );
