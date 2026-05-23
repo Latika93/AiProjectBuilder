@@ -17,6 +17,5 @@ spring:
         format_sql: true
 
 
-
 client:
   url: http://localhost:8080
