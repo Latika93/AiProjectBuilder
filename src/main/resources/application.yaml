@@ -2,9 +2,9 @@ spring:
   application:
     name: aiProjectBuilder
   datasource:
-    url: jdbc:postgresql://localhost:9000/testDB?options=-c%20TimeZone=Asia/Kolkata
-    username: test
-    password: pass
+    url: jdbc:postgresql://localhost:9010/pgvector-test?options=-c%20TimeZone=Asia/Kolkata
+    username: user
+    password: password
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -16,6 +16,3 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
 
-
-client:
-  url: http://localhost:8080
