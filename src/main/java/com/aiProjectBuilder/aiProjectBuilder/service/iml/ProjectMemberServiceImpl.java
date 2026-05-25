@@ -11,6 +11,7 @@ import com.aiProjectBuilder.aiProjectBuilder.mapper.ProjectMemberMapper;
 import com.aiProjectBuilder.aiProjectBuilder.repository.ProjectMemberRepository;
 import com.aiProjectBuilder.aiProjectBuilder.repository.ProjectRepository;
 import com.aiProjectBuilder.aiProjectBuilder.repository.UserRepository;
+import com.aiProjectBuilder.aiProjectBuilder.security.AuthUtil;
 import com.aiProjectBuilder.aiProjectBuilder.service.ProjectMemberService;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
@@ -34,10 +35,13 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
     ProjectMemberMapper projectMemberMapper;
     UserRepository userRepository;
 
+    AuthUtil authUtil;
+
 
     @Override
     @PreAuthorize("@security.canViewMembers(#projectId)")
-    public List<MemberResponse> getProjectMembers(Long projectId, Long userId) {
+    public List<MemberResponse> getProjectMembers(Long projectId) {
+        Long userId = authUtil.getCurrentUserId();
         Project project = getAccessibleProjectById(projectId, userId);
 
         return projectMemberRepository.findByIdProjectId(projectId)
@@ -48,7 +52,8 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
 
     @Override
     @PreAuthorize("@security.canManageMembers(#projectId)")
-    public MemberResponse inviteMember(Long projectId, InviteMemberRequest request, Long userId) {
+    public MemberResponse inviteMember(Long projectId, InviteMemberRequest request) {
+        Long userId = authUtil.getCurrentUserId();
         Project project = getAccessibleProjectById(projectId, userId);
 
         User invitee = userRepository.findByUsername(request.username()).orElseThrow();
@@ -78,7 +83,8 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
 
     @Override
     @PreAuthorize("@security.canManageMembers(#projectId)")
-    public MemberResponse updateMemberRole(Long projectId, Long memberId, UpdateMemberRoleRequest inviteMemberRequest, Long userId) {
+    public MemberResponse updateMemberRole(Long projectId, Long memberId, UpdateMemberRoleRequest inviteMemberRequest) {
+        Long userId = authUtil.getCurrentUserId();
         Project project = getAccessibleProjectById(projectId, userId);
 
         ProjectMemberId projectMemberId = new ProjectMemberId(projectId, memberId);
@@ -93,7 +99,8 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
 
     @Override
     @PreAuthorize("@security.canManageMembers(#projectId)")
-    public void removeProjectMember(Long projectId, Long memberId, Long userId) {
+    public void removeProjectMember(Long projectId, Long memberId) {
+        Long userId = authUtil.getCurrentUserId();
         Project project = getAccessibleProjectById(projectId, userId);
 
         ProjectMemberId projectMemberId = new ProjectMemberId(projectId, memberId);

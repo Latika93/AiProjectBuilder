@@ -1,0 +1,248 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes. Error detail: AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:44), pid=11088, tid=15752
+#
+# JRE version:  (22.0.2+9) (build )
+# Java VM: OpenJDK 64-Bit Server VM (22.0.2+9-FR, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2025.1.3\lib\idea_rt.jar=52177 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.aiProjectBuilder.aiProjectBuilder.AiProjectBuilderApplication
+
+Host: AMD Ryzen 5 7520U with Radeon Graphics         , 8 cores, 7G,  Windows 11 , 64 bit Build 26100 (10.0.26100.8328)
+Time: Sun May 24 19:15:29 2026 India Standard Time elapsed time: 1.063519 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002720f87f170):  JavaThread "Unknown thread" [_thread_in_vm, id=15752, stack(0x000000e620600000,0x000000e620700000) (1024K)]
+
+Stack: [0x000000e620600000,0x000000e620700000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6f7bb9]  (no source info available)
+V  [jvm.dll+0x8dc245]  (no source info available)
+V  [jvm.dll+0x8de4ae]  (no source info available)
+V  [jvm.dll+0x8deb93]  (no source info available)
+V  [jvm.dll+0x28d336]  (no source info available)
+V  [jvm.dll+0xbf867]  (no source info available)
+V  [jvm.dll+0x3459a4]  (no source info available)
+V  [jvm.dll+0x33d63e]  (no source info available)
+V  [jvm.dll+0x8a329c]  (no source info available)
+V  [jvm.dll+0x3d2271]  (no source info available)
+V  [jvm.dll+0x88c17c]  (no source info available)
+V  [jvm.dll+0x46b7ae]  (no source info available)
+V  [jvm.dll+0x46d5f1]  (no source info available)
+C  [jli.dll+0x52ab]  (no source info available)
+C  [ucrtbase.dll+0x37b0]  (no source info available)
+C  [KERNEL32.DLL+0x2e957]  (no source info available)
+C  [ntdll.dll+0x427c]  (no source info available)
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffee6edc648, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x0000027211b606f0 WorkerThread "GC Thread#0"                     [id=15776, stack(0x000000e620700000,0x000000e620800000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffee65ba500]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffee6f60010] Heap_lock - owner thread: 0x000002720f87f170
+
+Heap address: 0x000000008c200000, size: 1854 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total reserved 1898496K, committed 0K, used 0K [0x000000008c200000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffee69c47c9]
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.034 Loaded shared library C:\Users\Parul\.jdks\corretto-22.0.2\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6bbe50000 - 0x00007ff6bbe5e000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\java.exe
+0x00007fffe7780000 - 0x00007fffe79e7000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007fffe6770000 - 0x00007fffe6839000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007fffe4540000 - 0x00007fffe4937000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007fffe43f0000 - 0x00007fffe453b000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007fffd57e0000 - 0x00007fffd57f7000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\jli.dll
+0x00007fffd34a0000 - 0x00007fffd34bb000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\VCRUNTIME140.dll
+0x00007fffe6ee0000 - 0x00007fffe70a6000 	C:\WINDOWS\System32\USER32.dll
+0x00007fffe54d0000 - 0x00007fffe54f7000 	C:\WINDOWS\System32\win32u.dll
+0x00007fffd3190000 - 0x00007fffd3422000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8457_none_3e0b2faee331e92d\COMCTL32.dll
+0x00007fffe5960000 - 0x00007fffe598b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007fffe6e30000 - 0x00007fffe6ed9000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007fffe5260000 - 0x00007fffe538c000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007fffe4940000 - 0x00007fffe49e3000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007fffe6960000 - 0x00007fffe6992000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007fffd5740000 - 0x00007fffd574c000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\vcruntime140_1.dll
+0x00007fffcba50000 - 0x00007fffcbadd000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\msvcp140.dll
+0x00007ffee6270000 - 0x00007ffee7041000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\server\jvm.dll
+0x00007fffe55f0000 - 0x00007fffe56a6000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007fffe57d0000 - 0x00007fffe5877000 	C:\WINDOWS\System32\sechost.dll
+0x00007fffe56b0000 - 0x00007fffe57c8000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007fffe68c0000 - 0x00007fffe6940000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007fffe4010000 - 0x00007fffe406e000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007fffde380000 - 0x00007fffde38b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007fffde340000 - 0x00007fffde376000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007fffe3ff0000 - 0x00007fffe4004000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007fffe2f40000 - 0x00007fffe2f5b000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007fffd4230000 - 0x00007fffd423a000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\jimage.dll
+0x00007fffe1dc0000 - 0x00007fffe2002000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007fffe7380000 - 0x00007fffe7703000 	C:\WINDOWS\System32\combase.dll
+0x00007fffe5880000 - 0x00007fffe5959000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007fffd7b10000 - 0x00007fffd7b4b000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007fffe5390000 - 0x00007fffe5438000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007fffcf770000 - 0x00007fffcf77e000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\instrument.dll
+0x00007fffcf750000 - 0x00007fffcf76e000 	C:\Users\Parul\.jdks\corretto-22.0.2\bin\java.dll
+0x00007fffe59b0000 - 0x00007fffe611e000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007fffe71e0000 - 0x00007fffe7377000 	C:\WINDOWS\System32\ole32.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Parul\.jdks\corretto-22.0.2\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8457_none_3e0b2faee331e92d;C:\Users\Parul\.jdks\corretto-22.0.2\bin\server
+
+VM Arguments:
+jvm_args: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2025.1.3\lib\idea_rt.jar=52177 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: com.aiProjectBuilder.aiProjectBuilder.AiProjectBuilderApplication
+java_class_path (initial): C:\Users\Parul\Desktop\aiProjectBuilder\aiProjectBuilder\target\classes;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.1.0-RC1\spring-boot-starter-data-jpa-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter\4.1.0-RC1\spring-boot-starter-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.1.0-RC1\spring-boot-starter-logging-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\ch\qos\logback\logback-classic\1.5.32\logback-classic-1.5.32.jar;C:\Users\Parul\.m2\repository\ch\qos\logback\logback-core\1.5.32\logback-core-1.5.32.jar;C:\Users\Parul\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.4\log4j-to-slf4j-2.25.4.jar;C:\Users\Parul\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.4\log4j-api-2.25.4.jar;C:\Users\Parul\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.1.0-RC1\spring-boot-autoconfigure-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;C:\Users\Parul\.m2\repository\org\yaml\snakeyaml\2.6\snakeyaml-2.6.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.1.0-RC1\spring-boot-starter-jdbc-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.1.0-RC1\spring-boot-data-jpa-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.1.0-RC1\spring-boot-data-commons-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-persistence\4.1.0-RC1\spring-boot-persistence-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\data\spring-data-commons\4.1.0-RC1\spring-data-commons-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.1.0-RC1\spring-boot-hibernate-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-jpa\4.1.0-RC1\spring-boot-jpa-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\Parul\.m2\repository\org\hibernate\orm\hibernate-core\7.2.12.Final\hibernate-core-7.2.12.Final.jar;C:\Users\Parul\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Parul\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\Parul\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\Parul\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\Parul\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\Parul\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\Parul\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Parul\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-orm\7.0.7\spring-orm-7.0.7.jar;C:\Users\Parul\.m2\repository\org\springframework\data\spring-data-jpa\4.1.0-RC1\spring-data-jpa-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-context\7.0.7\spring-context-7.0.7.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-tx\7.0.7\spring-tx-7.0.7.jar;C:\Users\Parul\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-aspects\7.0.7\spring-aspects-7.0.7.jar;C:\Users\Parul\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.1.0-RC1\spring-boot-jdbc-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot\4.1.0-RC1\spring-boot-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-sql\4.1.0-RC1\spring-boot-sql-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-transaction\4.1.0-RC1\spring-boot-transaction-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-jdbc\7.0.7\spring-jdbc-7.0.7.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.1.0-RC1\spring-boot-starter-webmvc-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.1.0-RC1\spring-boot-starter-jackson-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-jackson\4.1.0-RC1\spring-boot-jackson-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\tools\jackson\core\jackson-databind\3.1.2\jackson-databind-3.1.2.jar;C:\Users\Parul\.m2\repository\tools\jackson\core\jackson-core\3.1.2\jackson-core-3.1.2.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.1.0-RC1\spring-boot-starter-tomcat-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.1.0-RC1\spring-boot-starter-tomcat-runtime-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.21\tomcat-embed-core-11.0.21.jar;C:\Users\Parul\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.21\tomcat-embed-websocket-11.0.21.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.1.0-RC1\spring-boot-tomcat-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.1.0-RC1\spring-boot-http-converter-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-web\7.0.7\spring-web-7.0.7.jar;C:\Users\Parul\.m2\repository\io\micrometer\micrometer-observation\1.17.0-RC1\micrometer-observation-1.17.0-RC1.jar;C:\Users\Parul\.m2\repository\io\micrometer\micrometer-commons\1.17.0-RC1\micrometer-commons-1.17.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.1.0-RC1\spring-boot-webmvc-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-servlet\4.1.0-RC1\spring-boot-servlet-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-webmvc\7.0.7\spring-webmvc-7.0.7.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-expression\7.0.7\spring-expression-7.0.7.jar;C:\Users\Parul\.m2\repository\org\postgresql\postgresql\42.7.10\postgresql-42.7.10.jar;C:\Users\Parul\.m2\repository\org\checkerframework\checker-qual\3.52.0\checker-qual-3.52.0.jar;C:\Users\Parul\.m2\repository\org\projectlombok\lombok\1.18.46\lombok-1.18.46.jar;C:\Users\Parul\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\Parul\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\Parul\.m2\repository\net\bytebuddy\byte-buddy\1.18.8\byte-buddy-1.18.8.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-core\7.0.7\spring-core-7.0.7.jar;C:\Users\Parul\.m2\repository\commons-logging\commons-logging\1.3.6\commons-logging-1.3.6.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-web-server\4.1.0-RC1\spring-boot-web-server-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\mapstruct\mapstruct\1.6.3\mapstruct-1.6.3.jar;C:\Users\Parul\.m2\repository\org\projectlombok\lombok-mapstruct-binding\0.2.0\lombok-mapstruct-binding-0.2.0.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-validation\4.1.0-RC1\spring-boot-starter-validation-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-validation\4.1.0-RC1\spring-boot-validation-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.21\tomcat-embed-el-11.0.21.jar;C:\Users\Parul\.m2\repository\org\hibernate\validator\hibernate-validator\9.1.0.Final\hibernate-validator-9.1.0.Final.jar;C:\Users\Parul\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\Parul\.m2\repository\org\jboss\logging\jboss-logging\3.6.3.Final\jboss-logging-3.6.3.Final.jar;C:\Users\Parul\.m2\repository\com\fasterxml\classmate\1.7.3\classmate-1.7.3.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-security\4.1.0-RC1\spring-boot-starter-security-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-security\4.1.0-RC1\spring-boot-security-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\security\spring-security-config\7.1.0-RC1\spring-security-config-7.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\security\spring-security-core\7.1.0-RC1\spring-security-core-7.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\security\spring-security-crypto\7.1.0-RC1\spring-security-crypto-7.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\security\spring-security-web\7.1.0-RC1\spring-security-web-7.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-aop\7.0.7\spring-aop-7.0.7.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-beans\7.0.7\spring-beans-7.0.7.jar;C:\Users\Parul\.m2\repository\io\jsonwebtoken\jjwt-api\0.12.6\jjwt-api-0.12.6.jar;C:\Users\Parul\.m2\repository\io\jsonwebtoken\jjwt-impl\0.12.6\jjwt-impl-0.12.6.jar;C:\Users\Parul\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.12.6\jjwt-jackson-0.12.6.jar;C:\Users\Parul\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.21.2\jackson-databind-2.21.2.jar;C:\Users\Parul\.m2\repository\com\stripe\stripe-java\31.1.0\stripe-java-31.1.0.jar;C:\Users\Parul\.m2\repository\com\google\code\gson\gson\2.13.2\gson-2.13.2.jar;C:\Users\Parul\.m2\repository\com\google\errorprone\error_prone_annotations\2.41.0\error_prone_annotations-2.41.0.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-starter-model-openai\2.0.0-M1\spring-ai-starter-model-openai-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-webclient\4.1.0-RC1\spring-boot-starter-webclient-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-reactor\4.1.0-RC1\spring-boot-reactor-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\io\projectreactor\reactor-core\3.8.5\reactor-core-3.8.5.jar;C:\Users\Parul\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-webclient\4.1.0-RC1\spring-boot-webclient-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-http-client\4.1.0-RC1\spring-boot-http-client-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-http-codec\4.1.0-RC1\spring-boot-http-codec-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\io\projectreactor\netty\reactor-netty-http\1.3.5\reactor-netty-http-1.3.5.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-http\4.2.12.Final\netty-codec-http-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-common\4.2.12.Final\netty-common-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-buffer\4.2.12.Final\netty-buffer-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-transport\4.2.12.Final\netty-transport-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-base\4.2.12.Final\netty-codec-base-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-compression\4.2.12.Final\netty-codec-compression-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-handler\4.2.12.Final\netty-handler-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-http2\4.2.12.Final\netty-codec-http2-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-http3\4.2.12.Final\netty-codec-http3-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-transport-native-unix-common\4.2.12.Final\netty-transport-native-unix-common-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-resolver\4.2.12.Final\netty-resolver-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-classes-quic\4.2.12.Final\netty-codec-classes-quic-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-native-quic\4.2.12.Final\netty-codec-native-quic-4.2.12.Final-linux-x86_64.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-native-quic\4.2.12.Final\netty-codec-native-quic-4.2.12.Final-linux-aarch_64.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-native-quic\4.2.12.Final\netty-codec-native-quic-4.2.12.Final-osx-x86_64.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-native-quic\4.2.12.Final\netty-codec-native-quic-4.2.12.Final-osx-aarch_64.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-native-quic\4.2.12.Final\netty-codec-native-quic-4.2.12.Final-windows-x86_64.jar;C:\Users\Parul\.m2\repository\io\netty\netty-resolver-dns\4.2.12.Final\netty-resolver-dns-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-dns\4.2.12.Final\netty-codec-dns-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-resolver-dns-native-macos\4.2.12.Final\netty-resolver-dns-native-macos-4.2.12.Final-osx-x86_64.jar;C:\Users\Parul\.m2\repository\io\netty\netty-resolver-dns-classes-macos\4.2.12.Final\netty-resolver-dns-classes-macos-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-transport-native-epoll\4.2.12.Final\netty-transport-native-epoll-4.2.12.Final-linux-x86_64.jar;C:\Users\Parul\.m2\repository\io\netty\netty-transport-classes-epoll\4.2.12.Final\netty-transport-classes-epoll-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\projectreactor\netty\reactor-netty-core\1.3.5\reactor-netty-core-1.3.5.jar;C:\Users\Parul\.m2\repository\io\netty\netty-handler-proxy\4.2.12.Final\netty-handler-proxy-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\io\netty\netty-codec-socks\4.2.12.Final\netty-codec-socks-4.2.12.Final.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-starter-restclient\4.1.0-RC1\spring-boot-starter-restclient-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\boot\spring-boot-restclient\4.1.0-RC1\spring-boot-restclient-4.1.0-RC1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-model-openai\2.0.0-M1\spring-ai-autoconfigure-model-openai-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-model-tool\2.0.0-M1\spring-ai-autoconfigure-model-tool-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-retry\2.0.0-M1\spring-ai-autoconfigure-retry-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-model-chat-observation\2.0.0-M1\spring-ai-autoconfigure-model-chat-observation-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-model-embedding-observation\2.0.0-M1\spring-ai-autoconfigure-model-embedding-observation-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-model-image-observation\2.0.0-M1\spring-ai-autoconfigure-model-image-observation-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-openai\2.0.0-M1\spring-ai-openai-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-model\2.0.0-M1\spring-ai-model-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-commons\2.0.0-M1\spring-ai-commons-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\io\micrometer\micrometer-core\1.17.0-RC1\micrometer-core-1.17.0-RC1.jar;C:\Users\Parul\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\Parul\.m2\repository\io\micrometer\context-propagation\1.2.1\context-propagation-1.2.1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-template-st\2.0.0-M1\spring-ai-template-st-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\antlr\ST4\4.3.4\ST4-4.3.4.jar;C:\Users\Parul\.m2\repository\org\antlr\antlr-runtime\3.5.3\antlr-runtime-3.5.3.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-messaging\7.0.7\spring-messaging-7.0.7.jar;C:\Users\Parul\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.21.2\jackson-datatype-jsr310-2.21.2.jar;C:\Users\Parul\.m2\repository\com\github\victools\jsonschema-module-swagger-2\4.38.0\jsonschema-module-swagger-2-4.38.0.jar;C:\Users\Parul\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.38\swagger-annotations-jakarta-2.2.38.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-retry\2.0.0-M1\spring-ai-retry-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\com\github\victools\jsonschema-generator\4.38.0\jsonschema-generator-4.38.0.jar;C:\Users\Parul\.m2\repository\com\github\victools\jsonschema-module-jackson\4.38.0\jsonschema-module-jackson-4.38.0.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-context-support\7.0.7\spring-context-support-7.0.7.jar;C:\Users\Parul\.m2\repository\org\springframework\spring-webflux\7.0.7\spring-webflux-7.0.7.jar;C:\Users\Parul\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-model-chat-client\2.0.0-M1\spring-ai-autoconfigure-model-chat-client-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-client-chat\2.0.0-M1\spring-ai-client-chat-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\io\modelcontextprotocol\sdk\mcp-json-jackson2\0.17.0\mcp-json-jackson2-0.17.0.jar;C:\Users\Parul\.m2\repository\io\modelcontextprotocol\sdk\mcp-json\0.17.0\mcp-json-0.17.0.jar;C:\Users\Parul\.m2\repository\com\networknt\json-schema-validator\2.0.0\json-schema-validator-2.0.0.jar;C:\Users\Parul\.m2\repository\com\ethlo\time\itu\1.14.0\itu-1.14.0.jar;C:\Users\Parul\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.21.2\jackson-dataformat-yaml-2.21.2.jar;C:\Users\Parul\.m2\repository\com\fasterxml\jackson\module\jackson-module-jsonSchema\2.21.2\jackson-module-jsonSchema-2.21.2.jar;C:\Users\Parul\.m2\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;C:\Users\Parul\.m2\repository\com\knuddels\jtokkit\1.1.0\jtokkit-1.1.0.jar;C:\Users\Parul\.m2\repository\org\springframework\ai\spring-ai-autoconfigure-model-chat-memory\2.0.0-M1\spring-ai-autoconfigure-model-chat-memory-2.0.0-M1.jar;C:\Users\Parul\.m2\repository\io\minio\minio\8.6.0\minio-8.6.0.jar;C:\Users\Parul\.m2\repository\com\carrotsearch\thirdparty\simple-xml-safe\2.7.1\simple-xml-safe-2.7.1.jar;C:\Users\Parul\.m2\repository\com\google\guava\guava\33.4.8-jre\guava-33.4.8-jre.jar;C:\Users\Parul\.m2\repository\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\Parul\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\Parul\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Parul\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\Parul\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.21\jackson-annotations-2.21.jar;C:\Users\Parul\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.21.2\jackson-core-2.21.2.jar;C:\Users\Parul\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.81\bcprov-jdk18on-1.81.jar;C:\Users\Parul\.m2\repository\org\apache\commons\commons-compress\1.28.0\commons-compress-1.28.0.jar;C:\Users\Parul\.m2\repository\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;C:\Users\Parul\.m2\repository\org\apache\commons\commons-lang3\3.20.0\commons-lang3-3.20.0.jar;C:\Users\Parul\.m2\repository\commons-codec\commons-codec\1.21.0\commons-codec-1.21.0.jar;C:\Users\Parul\.m2\repository\org\xerial\snappy\snappy-java\1.1.10.7\snappy-java-1.1.10.7.jar;C:\Users\Parul\.m2\repository\com\squareup\okhttp3\okhttp\4.12.0\okhttp-4.12.0.jar;C:\Users\Parul\.m2\repository\com\squareup\okio\okio\3.6.0\okio-3.6.0.jar;C:\Users\Parul\.m2\repository\com\squareup\okio\okio-jvm\3.6.0\okio-jvm-3.6.0.jar;C:\Users\Parul\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.9.10\kotlin-stdlib-common-1.9.10.jar;C:\Users\Parul\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\2.3.20\kotlin-stdlib-jdk8-2.3.20.jar;C:\Users\Parul\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\2.3.20\kotlin-stdlib-2.3.20.jar;C:\Users\Parul\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\Parul\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\2.3.20\kotlin-stdlib-jdk7-2.3.20.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+   size_t InitialHeapSize                          = 121634816                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1944059904                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 1944059904                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Users\Parul\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.9.9-hotspot\
+PATH=C:\Program Files\Java\jdk-21\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\mongodb-database-tools-windows-x86_64-100.10.0\bin;C:\Program Files\WireGuard\;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Java\jdk-21;C:\Program Files\apache-maven-3.9.11\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\PostgreSQL\18\bin;C:\Users\Parul\AppData\Local\Programs\MiKTeX\miktex\bin\x64;C:\Users\Parul\scoop\shims;C:\Users\Parul\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Parul\AppData\Local\Programs\Python\Python310\;C:\Users\Parul\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.9.9-hotspot\bin;C:\Users\Parul\AppData\Local\Microsoft\WindowsApps;C:\Users\Yugansh\VS Code\Microsoft VS Code\bin;C:\Users\Parul\AppData\Local\GitHubDesktop\bin;C:\Users\Parul\AppData\Local\Android\Sdk;C:\Users\Parul\AppData\Local\Android\Sdk\platform-tools;C:\Users\Parul\AppData\Local\Android\Sdk\emulator;C:\Users\Parul\AppData\Local\Android\Sdk\cmdline-tools\latest;C:\Users\Parul\AppData\Local\Android\Sdk\cmdline-tools\latest\bin;C:\Users\Parul\AppData\Local\spicetify;C:\Users\Parul\AppData\Local\Programs\cursor\resources\app\bin;$HOME\.goose\bin;C:\Users\Parul\AppData\Local\Microsoft\WindowsApps;C:\Users\Parul\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\Users\Parul\AppData\Roaming\npm;C:\Program Files\Java\jdk-24\bin;C:\Users\Parul\AppData\Local\Programs\Antigravity\bin;C:\Users\Parul\stripe;C:\Users\Parul\AppData\Local\Programs\MiKTeX\miktex\bin\x64\
+USERNAME=Parul
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+TMP=C:\Users\Parul\AppData\Local\Temp
+TEMP=C:\Users\Parul\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.8328)
+OS uptime: 0 days 3:58 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (8 cores per cpu, 2 threads per core) family 23 model 160 stepping 0 microcode 0x8a00006, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv, rdtscp, rdpid, f16c
+Processor Information for processor 0
+  Max Mhz: 2801, Current Mhz: 1981, Mhz Limit: 2801
+Processor Information for processor 1
+  Max Mhz: 2801, Current Mhz: 1981, Mhz Limit: 2801
+Processor Information for processor 2
+  Max Mhz: 2801, Current Mhz: 2483, Mhz Limit: 2801
+Processor Information for processor 3
+  Max Mhz: 2801, Current Mhz: 1981, Mhz Limit: 2801
+Processor Information for processor 4
+  Max Mhz: 2801, Current Mhz: 2483, Mhz Limit: 2801
+Processor Information for processor 5
+  Max Mhz: 2801, Current Mhz: 1981, Mhz Limit: 2801
+Processor Information for processor 6
+  Max Mhz: 2801, Current Mhz: 1981, Mhz Limit: 2801
+Processor Information for processor 7
+  Max Mhz: 2801, Current Mhz: 2483, Mhz Limit: 2801
+
+Memory: 4k page, system-wide physical 7413M (711M free)
+TotalPageFile size 29941M (AvailPageFile size 2M)
+current process WorkingSet (physical memory assigned to process): 13M, peak: 13M
+current process commit charge ("private bytes"): 59M, peak: 60M
+
+vm_info: OpenJDK 64-Bit Server VM (22.0.2+9-FR) for windows-amd64 JRE (22.0.2+9-FR), built on 2024-07-09T01:10:09Z by "Administrator" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.

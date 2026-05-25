@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "chat_messages")
@@ -29,11 +30,15 @@ public class ChatMessage {
     })
     ChatSession chatSession;
 
+    @OneToMany(mappedBy = "chatMessage", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OrderBy("sequenceOrder ASC")
+    List<ChatEvent> events; // empty unless ASSISTANT role
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     MessageRole role; // USER, ASSISTANT
 
-    @Column(columnDefinition = "text", nullable = false)
+    @Column(columnDefinition = "text")
     String content;
 
     Integer tokensUsed = 0;

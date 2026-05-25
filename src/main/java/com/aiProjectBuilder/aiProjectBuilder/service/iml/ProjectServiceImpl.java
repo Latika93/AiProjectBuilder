@@ -14,6 +14,7 @@ import com.aiProjectBuilder.aiProjectBuilder.mapper.ProjectMapper;
 import com.aiProjectBuilder.aiProjectBuilder.repository.ProjectMemberRepository;
 import com.aiProjectBuilder.aiProjectBuilder.repository.ProjectRepository;
 import com.aiProjectBuilder.aiProjectBuilder.repository.UserRepository;
+import com.aiProjectBuilder.aiProjectBuilder.security.AuthUtil;
 import com.aiProjectBuilder.aiProjectBuilder.service.ProjectService;
 import com.aiProjectBuilder.aiProjectBuilder.service.SubscriptionService;
 import jakarta.transaction.Transactional;
@@ -37,10 +38,18 @@ public class ProjectServiceImpl implements ProjectService {
     ProjectMapper projectMapper;
     ProjectMemberRepository projectMemberRepository;
     SubscriptionService subscriptionService;
+    AuthUtil authUtil;
 
     @Override
-    public ProjectResponse createProject(ProjectRequest projectRequest, Long userId) {
+    public List<ProjectSummaryResponse> getUserProjects() {
+        Long userId = authUtil.getCurrentUserId();
+        var projects = projectRepository.findAllAccessibleByUser(userId);
+        return projectMapper.toListOfProjectSummaryResponse(projects);
+    }
 
+    @Override
+    public ProjectResponse createProject(ProjectRequest projectRequest) {
+        Long userId = authUtil.getCurrentUserId();
         if(!subscriptionService.canCreateNewProject()) {
             throw new BadRequestException("User cannot create a New project with current Plan, Upgrade plan now.");
         }
@@ -72,14 +81,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<ProjectSummaryResponse> getUserProjects(Long userId) {
-        var projects = projectRepository.findAllAccessibleByUser(userId);
-        return projectMapper.toListOfProjectSummaryResponse(projects);
-    }
-
-    @Override
     @PreAuthorize("@security.canViewProject(#projectId)")
-    public ProjectResponse getUserProjectById(Long projectId, Long userId) {
+    public ProjectResponse getUserProjectById(Long projectId) {
+        Long userId = authUtil.getCurrentUserId();
         Project project = getAccessibleProjectById(projectId, userId);
         return projectMapper.toProjectResponse(project);
     }
@@ -87,7 +91,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @PreAuthorize("@security.canEditProject(#projectId)")
-    public ProjectResponse updateProject(Long projectId, ProjectRequest projectRequest, Long userId) {
+    public ProjectResponse updateProject(Long projectId, ProjectRequest projectRequest) {
+        Long userId = authUtil.getCurrentUserId();
         Project project = getAccessibleProjectById(projectId, userId);
 
         project.setName(projectRequest.name());
@@ -98,7 +103,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @PreAuthorize("@security.canDeleteProject(#projectId)")
-    public void softDeleteProject(Long projectId, Long userId) {
+    public void softDeleteProject(Long projectId) {
+        Long userId = authUtil.getCurrentUserId();
         Project project = getAccessibleProjectById(projectId, userId);
 
         project.setDeletedAt(Instant.now());
