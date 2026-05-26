@@ -2,6 +2,7 @@ package com.aiProjectBuilder.aiProjectBuilder.service.iml;
 
 import com.aiProjectBuilder.aiProjectBuilder.dto.project.FileContentResponse;
 import com.aiProjectBuilder.aiProjectBuilder.dto.project.FileNode;
+import com.aiProjectBuilder.aiProjectBuilder.dto.project.FileTreeResponse;
 import com.aiProjectBuilder.aiProjectBuilder.entity.Project;
 import com.aiProjectBuilder.aiProjectBuilder.entity.ProjectFile;
 import com.aiProjectBuilder.aiProjectBuilder.errors.ResourceNotFoundException;
@@ -41,9 +42,10 @@ public class ProjectFileServiceImpl implements ProjectFileService {
     private String projectBucket;
 
     @Override
-    public List<FileNode> getFileTree(Long projectId) {
+    public FileTreeResponse getFileTree(Long projectId) {
         List<ProjectFile> projectFileList = projectFileRepository.findByProjectId(projectId);
-        return projectFileMapper.toListOfFileNode(projectFileList);
+        List<FileNode> projectFileNodes = projectFileMapper.toListOfFileNode(projectFileList);
+        return new FileTreeResponse(projectFileNodes);
     }
 
     @Override

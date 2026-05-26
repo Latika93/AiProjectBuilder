@@ -1,26 +1,33 @@
 package com.aiProjectBuilder.aiProjectBuilder.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
+@Entity
+@Table(name = "usage_logs", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"user_id", "date"}) // One log per user per day
+})
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UsageLog { // helps to manage quota
+public class UsageLog {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    User user;
-    Project project;
 
-    String action;
+    @Column(name = "user_id", nullable = false)
+    Long userId;
 
-    Integer tokenUsed;
-    Integer durationMs;
+    @Column(nullable = false)
+    LocalDate date;
 
-    String metaData;
-
-    Instant createdAt;
+    Integer tokensUsed;
 }

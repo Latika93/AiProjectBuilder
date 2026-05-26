@@ -4,7 +4,6 @@ import com.aiProjectBuilder.aiProjectBuilder.dto.subscription.PlanLimitResponse;
 import com.aiProjectBuilder.aiProjectBuilder.dto.subscription.UsageTodayResponse;
 
 public interface UsageService {
-    UsageTodayResponse getTodayUsageOfUser(Long userId);
-
-    PlanLimitResponse getCurrentSubscriptionLimitsOfUser(Long userId);
+    void recordTokenUsage(Long userId, int actualTokens);
+    void checkDailyTokensUsage();
 }
